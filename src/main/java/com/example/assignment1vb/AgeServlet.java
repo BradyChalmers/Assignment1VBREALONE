@@ -15,18 +15,18 @@ public class AgeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         QueryUtil query = new QueryUtil();
 
-        List<AgeGroup> ageGroupList = query.getAgeGroupList();
+        List<AgeGroup> age = query.getAgeList();
 
-        for (AgeGroup group : ageGroupList){
+        for (AgeGroup group : age){
             if (group.getCensusYear().equals("1")){
                 group.setCensusYear("2016");
             }else if (group.getCensusYear().equals("2")){
                 group.setCensusYear("2011");
             }
         }
-        request.setAttribute("ageGroups", ageGroupList);
+        request.setAttribute("ageGroups", age);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("./ageGroupList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request,response);
     }
 

@@ -3,16 +3,16 @@ package com.example.assignment1vb;
 public class AgeGroup {
 
     private String description;
-    private String malePopulation;
-    private String femalePopulation;
+    private String male;
+    private String female;
     private String censusYear;
 
 
 
-    public AgeGroup(String description, String malePopulation, String femalePopulation, String censusYear){
+    public AgeGroup(String description, String male, String female, String censusYear){
         this.description = description;
-        this.malePopulation = malePopulation;
-        this.femalePopulation = femalePopulation;
+        this.male = male;
+        this.female = female;
         this.censusYear = censusYear;
     }
 
@@ -25,19 +25,19 @@ public class AgeGroup {
     }
 
     public String getMalePopulation() {
-        return malePopulation;
+        return male;
     }
 
-    public void setMalePopulation(String malePopulation) {
-        this.malePopulation = malePopulation;
+    public void setMale(String male) {
+        this.male = male;
     }
 
-    public String getFemalePopulation() {
-        return femalePopulation;
+    public String getFemale() {
+        return female;
     }
 
-    public void setFemalePopulation(String femalePopulation) {
-        this.femalePopulation = femalePopulation;
+    public void setFemale(String female) {
+        this.female = female;
     }
 
     public String getCensusYear() {

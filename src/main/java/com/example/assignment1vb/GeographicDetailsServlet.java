@@ -17,7 +17,7 @@ public class GeographicDetailsServlet extends HttpServlet {
 
         QueryUtil query = new QueryUtil();
 
-        List<GeographicArea> geographicAreaDetails = query.getGeographicAreaDetailsList();
+        List<GeographicArea> geographicAreaDetails = query.getGeographicDetailsList();
 
         for (GeographicArea area : geographicAreaDetails){
             switch (area.getLevel()){

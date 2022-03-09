@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 @WebServlet(name = "IndexServlet", value = "/IndexServlet")
 public class IndexServlet extends HttpServlet {
 
+    //define db variable
     private DBUtil dbhelper;
 
     public void init(){
@@ -26,12 +27,16 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
+
+        //check if login info is valid
         if(dbhelper.selectUser(request.getParameter("txtUsername"), request.getParameter("txtPassword")))
         {
+            //redirect
             RequestDispatcher dispatcher = request.getRequestDispatcher("DatabaseHome.jsp");
             dispatcher.forward(request, response);
         }
         else{
+            //redirect
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }

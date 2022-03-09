@@ -12,14 +12,18 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public class DBUtil {
+
+    //define database variables
     private String jdbcURL = "jdbc:mysql://localhost:3306/canadacensusdb";
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
 
+    //define sql statement for login
     private static final String SELECT_USER_VALIDATION = "select iduser from user where userName =? and password = ?;";
 
     public DBUtil() {}
 
+    //create connection to database
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -35,14 +39,15 @@ public class DBUtil {
         return connection;
     }
 
+    //database stuff
     public static DBUtil instances;
 
     public static DBUtil getInstances() {
         return (instances == null)? instances = new DBUtil() : instances;
     }
 
+    //login method, takes variables given on login screen and runs the sql to check database for existance for user
     public boolean selectUser(String userNameInput, String passwordInput) {
-        int checkID = -1;
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
              // Step 2:Create a statement using connection object
@@ -62,22 +67,6 @@ public class DBUtil {
             return false;
         } catch (SQLException e) {
             return false;
-        }
-    }
-
-    private void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
         }
     }
 }

@@ -1,14 +1,16 @@
 package com.example.assignment1vb;
 
+//define bean
 public class AgeGroup {
 
+    //define attributes
     private String description;
     private String male;
     private String female;
     private String censusYear;
 
 
-
+    //base constructor
     public AgeGroup(String description, String male, String female, String censusYear){
         this.description = description;
         this.male = male;
@@ -16,8 +18,7 @@ public class AgeGroup {
         this.censusYear = censusYear;
     }
 
-    public AgeGroup(){}
-
+    //attribute deffinitions
     public String getDescription() {
         return description;
     }

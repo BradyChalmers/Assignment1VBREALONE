@@ -13,19 +13,28 @@ import java.util.List;
 public class AgeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //define query variable
         QueryUtil query = new QueryUtil();
 
+        //list ages for first census
         List<AgeGroup> age = query.getAgeList("1");
         for(AgeGroup a:age) {
+            //change 1 to 2011
             a.setCensusYear("2011");
         }
+        //list ages for second census
         List<AgeGroup> age2 = query.getAgeList("2");
         for(AgeGroup a:age2) {
+            //change 2 to 2016
             a.setCensusYear("2016");
         }
+
+        //set request attributes
         request.setAttribute("age2011", age);
         request.setAttribute("age2016", age2);
 
+        //redirect
         RequestDispatcher dispatcher = request.getRequestDispatcher("AgeList.jsp");
         dispatcher.forward(request,response);
     }

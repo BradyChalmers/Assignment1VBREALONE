@@ -2,8 +2,10 @@ package com.example.assignment1vb;
 
 import java.util.List;
 
+//define bean
 public class GeographicArea {
 
+    //define attributes
     private String name;
     private String code;
     private String altCode;
@@ -11,7 +13,7 @@ public class GeographicArea {
     private String population;
     private List<String> nestedAreas;
 
-
+    //base constructor
     public GeographicArea(String name, String code, String altCode, String level, String population){
         this.name = name;
         this.code = code;
@@ -20,8 +22,11 @@ public class GeographicArea {
         this.population = population;
     }
 
+    //empty constructor
     public GeographicArea(){}
 
+
+    //attribute definitions
     public String getName() {
         return name;
     }

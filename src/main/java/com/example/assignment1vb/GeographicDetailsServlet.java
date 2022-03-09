@@ -35,14 +35,14 @@ public class GeographicDetailsServlet extends HttpServlet {
 
                 case "1":
 
-                    List<String> subNestedAreas = new ArrayList<String>();
+                    List<String> provinceAreas = new ArrayList<String>();
 
                     for (GeographicArea nestedArea : geographicAreaDetails){
                         if(nestedArea.getLevel().equals("2") && nestedArea.getAltCode().substring(0,2).equals(nestedArea.getAltCode())){
-                            subNestedAreas.add(nestedArea.getName());
+                            provinceAreas.add(nestedArea.getName());
                         }
                     }
-                    area.setNestedAreas(subNestedAreas);
+                    area.setNestedAreas(provinceAreas);
                     break;
 
                 case "2":

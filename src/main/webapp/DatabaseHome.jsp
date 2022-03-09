@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>YOU LOGGED IN</h1>
+<a href="geoAreaClassification.jsp">Geographical Area Classification</a>
 </body>
 </html>

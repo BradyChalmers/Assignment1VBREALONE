@@ -20,7 +20,7 @@
         <table>
             <tr>
                 <th>Category 0</th>
-                <jsp:getProperty name="gACL" property="category0"/>
+                <jsp:getProperty name="gACL" property="cat0"/>
             </tr>
         </table>
     </div>

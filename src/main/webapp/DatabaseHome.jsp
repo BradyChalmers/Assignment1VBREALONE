@@ -18,5 +18,15 @@
     <input type="text" name="txtCountryName"/>
     <input type="submit" name="submit"/>
 </form>
+<form action="GeographicServlet" method="GET">
+    <h4>Choose category type</h4>
+    <select name="cmbCategory">
+        <option value="0">Category 1</option>
+        <option value="1">Category 2</option>
+        <option value="2">Category 3</option>
+        <option value="3">Category 4</option>
+    </select>
+    <input type="submit" name="submit"/>
+</form>
 </body>
 </html>

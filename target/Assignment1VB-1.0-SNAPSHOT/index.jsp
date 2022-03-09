@@ -5,6 +5,7 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
+<div id="login" align="center">
 <form action="IndexServlet" method="POST">
     <h1>Login
     </h1>
@@ -16,6 +17,7 @@
     <br/>
     <input type="submit" placeholder="submit"/>
 </form>
+</div>
 <br/>
 <br/>
 <a href="<%=request.getContextPath()%>/IndexServlet">Register</a>

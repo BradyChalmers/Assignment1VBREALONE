@@ -1,24 +1,24 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.assignment1vb.AgeGroup" %><%--
   Created by IntelliJ IDEA.
   User: timbe
   Date: 2022-03-08
-  Time: 9:41 p.m.
+  Time: 11:24 p.m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.example.assignment1vb.AgeGroup" %>
-<%@ page import="java.util.List" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<h1>2011</h1>
 <table>
-    <tr >
+    <tr>
         <th><b>Census Year</b></th>
         <th><b>Description</b></th>
-        <th><b>Male population</b></th>
-        <th><b>Female population</b></th>
+        <th><b>Male Population</b></th>
+        <th><b>Female Population</b></th>
     </tr>
     <%-- Fetching the attributes of the request object
          which was previously set by the servlet
@@ -32,18 +32,18 @@
     <tr>
         <td><%=a.getCensusYear()%></td>
         <td><%=a.getDescription()%></td>
-        <td><%=a.getMalePopulation()%></td>
+        <td><%=a.getMale()%></td>
         <td><%=a.getFemale()%></td>
     </tr>
     <%}%>
 </table>
-
+<h1>2016</h1>
 <table>
-    <tr >
+    <tr>
         <th><b>Census Year</b></th>
         <th><b>Description</b></th>
-        <th><b>Male population</b></th>
-        <th><b>Female population</b></th>
+        <th><b>Male Population</b></th>
+        <th><b>Female Population</b></th>
     </tr>
     <%-- Fetching the attributes of the request object
          which was previously set by the servlet
@@ -57,13 +57,13 @@
     <tr>
         <td><%=a.getCensusYear()%></td>
         <td><%=a.getDescription()%></td>
-        <td><%=a.getMalePopulation()%></td>
+        <td><%=a.getMale()%></td>
         <td><%=a.getFemale()%></td>
     </tr>
     <%}%>
 </table>
 <form action="AgeServlet" method="POST">
-    <input type="submit" value="Go Back" name="GoBack"/>
+    <input type="submit" name="GoBack" value="Go Back"/>
 </form>
 </body>
 </html>

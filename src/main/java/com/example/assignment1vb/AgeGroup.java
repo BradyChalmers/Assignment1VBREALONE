@@ -26,7 +26,7 @@ public class AgeGroup {
         this.description = description;
     }
 
-    public String getMalePopulation() {
+    public String getMale() {
         return male;
     }
 

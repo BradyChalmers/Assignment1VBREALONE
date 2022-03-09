@@ -104,6 +104,52 @@ public class QueryUtil {
         return getGeographicDetailsList;
     }
 
+    //returns individual item for geographic report
+    public GeographicArea getIndividualGeoArea(String name){
+
+        String SQL_geoDetails = "SELECT ga.ALTERNATIVECODE, ga.NAME, ga.CODE, ga.LEVEL, (SELECT SUM(MALE + FEMALE) FROM AGE a JOIN CENSUSYEAR c ON a.CENSUSYEAR = c.CENSUSYEARID JOIN AGEGROUP ag ON a.AGEGROUP = ag.AGEGROUPID WHERE a.GEOGRAPHICAREA = ga.GEOGRAPHICAREAID AND c.CENSUSYEARID = 2 AND AGEGROUPID = 1) AS population FROM GEOGRAPHICAREA ga INNER JOIN AGE a ON ga.GEOGRAPHICAREAID = a.GEOGRAPHICAREA JOIN CENSUSYEAR c ON a.CENSUSYEAR = c.CENSUSYEARID JOIN AGEGROUP ag ON a.AGEGROUP = ag.AGEGROUPID WHERE c.CENSUSYEARID = 2 AND AGEGROUPID = 1 AND NAME = ? ORDER BY ga.ALTERNATIVECODE";
+
+        GeographicArea geoArea = new GeographicArea();
+
+        try{
+            connection = DBUtil.getInstances().getConnection();
+            connection.setAutoCommit(false);
+
+            ps = connection.prepareStatement(SQL_geoDetails);
+            ps.setString(1, name);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                String name2 = rs.getString("NAME");
+                String code = rs.getString("CODE");
+                String altcode = rs.getString("ALTERNATIVECODE");
+                String level = rs.getString("LEVEL");
+                String population = rs.getString("POPULATION");
+
+                geoArea = new GeographicArea(name2, code, altcode, level, population);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+            }
+            catch(Exception e) {}
+            try {
+                ps.close();
+            }
+            catch(Exception e) {}
+            try {
+                connection.close();
+            }
+            catch(Exception e) {}
+        }
+        return geoArea;
+    }
+
     //returns a list of age groups
     public List<AgeGroup> getAgeList(String year) {
 

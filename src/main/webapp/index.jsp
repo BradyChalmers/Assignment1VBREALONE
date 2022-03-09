@@ -19,7 +19,5 @@
 </form>
 </div>
 <br/>
-<br/>
-<a href="<%=request.getContextPath()%>/IndexServlet">Register</a>
 </body>
 </html>

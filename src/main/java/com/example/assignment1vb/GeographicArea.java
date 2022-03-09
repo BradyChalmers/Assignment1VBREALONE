@@ -20,6 +20,8 @@ public class GeographicArea {
         this.population = population;
     }
 
+    public GeographicArea(){}
+
     public String getName() {
         return name;
     }

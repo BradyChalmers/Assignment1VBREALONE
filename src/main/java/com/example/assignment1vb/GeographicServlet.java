@@ -16,15 +16,15 @@ public class GeographicServlet extends HttpServlet {
 
         QueryUtil query = new QueryUtil();
 
-        List<String> cat0 = query.getGeographicList(0);
-        List<String> cat1 = query.getGeographicList(1);
-        List<String> cat2 = query.getGeographicList(2);
-        List<String> cat3 = query.getGeographicList(3);
+        List<String> name = query.getGeographicList(0);
+        List<String> code = query.getGeographicList(1);
+        List<String> level = query.getGeographicList(2);
+        List<String> totalPopulation = query.getGeographicList(3);
 
-        request.setAttribute("category0", cat0);
-        request.setAttribute("category1", cat1);
-        request.setAttribute("category2", cat2);
-        request.setAttribute("category3", cat3);
+        request.setAttribute("category0", name);
+        request.setAttribute("category1", code);
+        request.setAttribute("category2", level);
+        request.setAttribute("category3", totalPopulation);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);

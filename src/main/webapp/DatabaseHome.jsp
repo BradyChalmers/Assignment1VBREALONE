@@ -13,5 +13,10 @@
 <body>
 <h1>YOU LOGGED IN</h1>
 <a href="<%=request.getContextPath()%>/AgeServlet">Age Lists</a>
+<form action="IndividualGeographicServlet" method="GET">
+    <h4>Type in a country name</h4>
+    <input type="text" name="txtCountryName"/>
+    <input type="submit" name="submit"/>
+</form>
 </body>
 </html>

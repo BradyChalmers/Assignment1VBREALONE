@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>YOU LOGGED IN</h1>
-<a href="<%=request.getContextPath()%>/AgeServlet">Register</a>
+<a href="<%=request.getContextPath()%>/AgeServlet">Age Lists</a>
 </body>
 </html>

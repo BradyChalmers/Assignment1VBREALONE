@@ -16,8 +16,13 @@ public class AgeServlet extends HttpServlet {
         QueryUtil query = new QueryUtil();
 
         List<AgeGroup> age = query.getAgeList("1");
+        for(AgeGroup a:age) {
+            a.setCensusYear("2011");
+        }
         List<AgeGroup> age2 = query.getAgeList("2");
-
+        for(AgeGroup a:age2) {
+            a.setCensusYear("2016");
+        }
         request.setAttribute("age2011", age);
         request.setAttribute("age2016", age2);
 
@@ -27,6 +32,7 @@ public class AgeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("DatabaseHome.jsp");
+        dispatcher.forward(request, response);
     }
 }

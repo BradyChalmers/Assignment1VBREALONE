@@ -105,9 +105,9 @@ public class QueryUtil {
     }
 
     //returns a list of age groups
-    public List<AgeGroup> getAgeList() {
+    public List<AgeGroup> getAgeList(String year) {
 
-        String SQL_ageGroup = "SELECT DISTINCT a.censusyear, ag.ageGroupID , ag.DESCRIPTION, SUM(a.MALE) AS MALE, SUM(a.FEMALE) AS FEMALE FROM AGE a JOIN AGEGROUP ag ON a.AGEGROUP = ag.AGEGROUPID JOIN GEOGRAPHICAREA ga ON a.GEOGRAPHICAREA = ga.GEOGRAPHICAREAID WHERE ga.GEOGRAPHICAREAID = 1 AND ag.ageGroupID IN (3,9,22,28,34,40,46,52,58,70,76,83,89,95,101,108,114,120,126) GROUP BY a.censusyear, ag.DESCRIPTION,  ag.ageGroupID";
+        String SQL_ageGroup = "SELECT DISTINCT a.censusyear, ag.ageGroupID , ag.DESCRIPTION, SUM(a.MALE) AS MALE, SUM(a.FEMALE) AS FEMALE FROM AGE a JOIN AGEGROUP ag ON a.AGEGROUP = ag.AGEGROUPID JOIN GEOGRAPHICAREA ga ON a.GEOGRAPHICAREA = ga.GEOGRAPHICAREAID WHERE ga.GEOGRAPHICAREAID = 1 AND a.censusYear = ? AND ag.ageGroupID IN (3,9,22,28,34,40,46,52,58,70,76,83,89,95,101,108,114,120,126) GROUP BY a.censusyear, ag.DESCRIPTION,  ag.ageGroupID";
 
         List<AgeGroup> groups = new ArrayList<AgeGroup>();
 
@@ -116,6 +116,7 @@ public class QueryUtil {
             connection.setAutoCommit(false);
 
             ps = connection.prepareStatement(SQL_ageGroup);
+            ps.setString(1, year);
 
             rs = ps.executeQuery();
 

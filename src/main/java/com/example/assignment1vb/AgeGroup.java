@@ -16,6 +16,8 @@ public class AgeGroup {
         this.censusYear = censusYear;
     }
 
+    public AgeGroup(){}
+
     public String getDescription() {
         return description;
     }
